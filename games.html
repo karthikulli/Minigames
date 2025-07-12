@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Home Page -->
+    <div class="home-section" id="homePage">
+        <h1>Welcome To <br>Epic Battle Arena</h1>
+        <h4>Choose a game and start playing!</h4><br>
+        <button class="btn btn-primary" onclick="showGameList()">Explore Now</button>
+    </div>
+
+    <!-- Game Selection -->
+    <div class="container mt-5 game-section" id="gameList">
+        <div class="row">
+            <div class="col-12 col-md-5 game-card">
+                <h1>Guessing Game</h1>
+                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/guess-game-img.png" alt="Guessing Game">
+                <button class="btn btn-success mt-2" onclick="showGame('guessGame')">Play Now</button>
+            </div>
+            <div class=" col-12 col-md-5 game-card">
+                <h1>Addition Game</h1>
+                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/sum-of-two-numbers-img.png" alt="Addition Game">
+                <button class="btn btn-success mt-2" onclick="showGame('additionGame')">Play Now</button>
+            </div>
+            <div class="col-12 col-md-5 game-card">
+                <h1>Bomb Defuser</h1>
+                <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1083070/capsule_616x353.jpg?t=1728898792" alt="Bomb Defuser">
+                <button class="btn btn-success mt-2" onclick="showGame('bombDefuser')">Play Now</button>
+            </div>
+            <div class="col-12 col-md-5 game-card">
+                <h1>Finding the Flames</h1>
+                <img src="https://genuinerelationship.com/wp-content/uploads/2025/02/FLAMES-Calculator.png" alt="Flames Game">
+                <button class="btn btn-success mt-2" onclick="showGame('flamesGame')">Play Now</button>
+            </div>
+            <div class="col-12 col-md-5 game-card">
+                <h1>Number Guess- Two persons</h1>
+                <img src="https://png.pngtree.com/png-vector/20210220/ourmid/pngtree-player-1-vs-2-versus-match-png-image_2925550.jpg" alt="Click Game">
+                <button class="btn btn-success mt-2" onclick="showGame('number_guess_tw0')">Play Now</button>
+            </div>
+            <div class="col-12 col-md-5 game-card">
+                <h1>Click Counter</h1>
+                <img src="https://via.placeholder.com/300x200?text=Click+Counter" alt="Click Counter">
+                <button class="btn btn-success mt-2" onclick="showGame('counterGame')">Play Now</button>
+            </div>
+            <div class="col-12 col-md-5 game-card">
+                <h1>Color Changer</h1>
+                <img src="https://via.placeholder.com/300x200?text=Color+Changer" alt="Color Changer">
+                <button class="btn btn-success mt-2" onclick="showGame('colorChanger')">Play Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guessing Game Section -->
+    <div class="container game-section" id="guessGame">
+        <h3>Guess a number between 1 and 100</h3>
+        <input type="number" id="guessInput" class="form-control w-50 mx-auto" placeholder="Enter your guess">
+        <button class="btn btn-info mt-2" onclick="checkGuess()">Check</button>
+        <p id="guessMessage" style="color:red;font-size:30px"></p>
+        <button class="btn btn-danger d-flex flex-row justify-content-start" onclick="display('gameList')">Back</button>
+    </div>
+
+    <!-- Addition Game Section -->
+    <div class="container game-section" id="additionGame">
+        <h3>Add the numbers</h3>
+        <p><span id="num1"></span> + <span id="num2"></span> = ?</p>
+        <input type="number" id="sumInput" class="form-control w-50 mx-auto" placeholder="Your answer">
+        <button class="btn btn-info mt-2" onclick="checkSum()">Check</button>
+        <p id="sumMessage" style="color:red;font-size:30px"></p>
+        <button class="btn btn-danger d-flex flex-row justify-content-start" onclick="display('gameList')">Back</button>
+    </div>
+
+    <!-- Bomb Defuser Section -->
+    <div class="container game-section" id="bombDefuser">
+        <h3>Defuse the bomb by Answering the question..!</h3><br>
+        <h3>In which year the Operation Sindoor takes place?</h3>
+        <p>Time left: <span id="timer">10</span>s</p>
+        <input type="text" id="defuseInput" class="form-control w-50 mx-auto" placeholder="Enter year">
+        <p id="deffuseMessage" style="color:green;font-size:30px"></p>
+        <button class="btn btn-danger d-flex flex-row justify-content-start" onclick="display('gameList')">Back</button>
+
+    </div>
+
+    <!-- FLAMES Section -->
+    <div class="container game-section" id="flamesGame">
+        <h3>FIND YOUR RELATION</h3><br>
+        <input type="text" id="name1" placeholder="Your Name" class="form-control w-50 mx-auto mt-2">
+        <input type="text" id="name2" placeholder="Crush Name" class="form-control w-50 mx-auto mt-2"><br>
+        <button class="btn btn-info mt-2" onclick="calculateFlames()">Check</button>
+        <p id="flamesResult" style="color:green;font-size:30px"></p>
+        <button class="btn btn-danger d-flex flex-row justify-content-start" onclick="display('gameList')">Back</button>
+    </div>
+
+    <!-- Number gress Two persons -->
+    <div class="container game-section " id="number_guess_tw0">
+        <h1>Number Guessing Game</h1>
+        <div class="input-group">
+            <input type="number" id="min" placeholder="Min Value" class="form-control m-3">
+            <input type="number" id="max" placeholder="Max Value" class="form-control m-3">
+            <input type="text" id="user1" placeholder="User-1 Name" class="form-control m-3">
+            <input type="text" id="user2" placeholder="User-2 Name" class="form-control m-3">
+        </div>
+        <button onclick="startGame()" class="btn btn-info">Start Game</button>
+
+        <div id="rounds" class="hidden">
+            <div class="round">
+                <p id="round-info">Round <span id="round-number">1</span> of 5</p>
+                <input type="number" id="guess1" placeholder="User 1 Guess">
+                <input type="number" id="guess2" placeholder="User 2 Guess"><br>
+                <button onclick="playRound()" class="btn btn-info">Submit Guesses</button>
+            </div>
+
+            <div id="result"></div><br>
+
+
+            <button class="btn btn-danger d-flex flex-row justify-content-start" onclick="display('gameList')">Back</button>
+        </div>
+
+        <!-- Click Counter Section -->
+        <div class="container game-section" id="counterGame">
+            <h3>Click Counter Game</h3>
+            <p>Click the button as many times as you can!</p>
+            <button class="btn btn-warning" onclick="incrementCounter()">Click Me!</button>
+            <p>Count: <span id="clickCount">0</span></p>
+            <button class="btn btn-danger d-flex flex-row justify-content-start" onclick="display('gameList')">Back</button>
+        </div>
+
+        <!-- Color Changer Section -->
+        <div class="container game-section" id="colorChanger">
+            <h3>Color Changer Game</h3>
+            <p>Click the button to change the background color!</p>
+            <button class="btn btn-secondary" onclick="changeColor()">Change Color</button>
+            <div id="colorBox"></div>
+            <button class="btn btn-danger d-flex flex-row justify-content-start" onclick="display('gameList')">Back</button>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+
+</body>
+
+</html>
